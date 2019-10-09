@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <sstream>
-#include <thread>
+//#include <thread>
 
 MD5Calculate::MD5Calculate()
 {
@@ -18,7 +18,9 @@ void MD5Calculate::operator()(const tbb::blocked_range<int> &range) const
     {
         if(i%1000 == 0)
         {
-            std::cout << "counter is: " << i << " and thread name is: " << std::this_thread::get_id << std::endl;
+//            std::cout << "counter is: " << i << " and thread name is: " << &std::this_thread::get_id << std::endl;
+            std::cout << "counter is: " << i << std::endl;
+
         }
     }
 }
