@@ -29,7 +29,11 @@ int main()
       );
 
     //some example
+    tbb::tick_count t0 = tbb::tick_count::now();
     tbb::task_scheduler_init init;
     tbb::parallel_for(tbb::blocked_range<int>(1000000, 8999999), MD5Calculate());
+    std::cout << "Time : "
+              << (tbb::tick_count::now()-t0).seconds()
+              << " seconds" << std::endl;
     return 0;
 }
